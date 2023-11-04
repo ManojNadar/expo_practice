@@ -1,8 +1,14 @@
-import { View, Text, Button } from "react-native";
-import React from "react";
-import { Link } from "expo-router";
+import { View, Text } from "react-native";
+import React, { useEffect } from "react";
+import { Link, useRouter } from "expo-router";
 
 export default function index() {
+  const router = useRouter();
+  useEffect(() => {
+    setTimeout(() => {
+      router.push("/login");
+    }, 2000);
+  }, []);
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <Link href={"/login"} asChild>

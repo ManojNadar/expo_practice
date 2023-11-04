@@ -10,6 +10,7 @@ import {
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "expo-router";
+// import { Drawer } from "expo-router/drawer";
 
 export default function Home() {
   const [allProducts, setAllProducts] = useState([]);
@@ -37,15 +38,17 @@ export default function Home() {
   }, []);
 
   return (
-    <View>
+    <View style={{ flex: 1 }}>
+      {/* <Drawer.Screen /> */}
       {loading ? (
         <View
           style={{
             alignItems: "center",
             justifyContent: "center",
+            marginTop: 250,
           }}
         >
-          <ActivityIndicator size={40} color={"red"} />
+          <ActivityIndicator size={40} color={"blue"} />
         </View>
       ) : null}
       {error ? (
@@ -63,11 +66,16 @@ export default function Home() {
             renderItem={({ item }) => (
               <Pressable
                 style={{
-                  width: 200,
                   height: 320,
                   flex: 1,
                   justifyContent: "center",
                   alignItems: "center",
+                  borderColor: "grey",
+                  borderWidth: 2,
+                  backgroundColor: "white",
+
+                  marginVertical: 10,
+                  marginHorizontal: 10,
                 }}
                 onPress={() => {
                   router.push({
@@ -83,7 +91,13 @@ export default function Home() {
                   height={250}
                   source={{ uri: item.image }}
                 />
-                <Text>{item.title}</Text>
+                <Text style={{ textAlign: "center" }}>
+                  {item.title.slice(0, 15)}..
+                </Text>
+                <Text style={{ textAlign: "center" }}>Rs. {item.price}</Text>
+                <Text style={{ textAlign: "center", color: "orange" }}>
+                  *{item?.rating?.rate}
+                </Text>
               </Pressable>
             )}
           />

@@ -55,6 +55,7 @@ export default function _layout() {
       />
       <Drawer.Screen name="Trending" />
       <Drawer.Screen name="profile" />
+      <Drawer.Screen name="cart" />
       <Drawer.Screen name="logout" />
     </Drawer>
   );
