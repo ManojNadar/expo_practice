@@ -10,6 +10,7 @@ import {
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "expo-router";
+import CustomBottomTabs from "../CustomBottomTabs";
 // import { Drawer } from "expo-router/drawer";
 
 export default function Home() {
@@ -103,6 +104,17 @@ export default function Home() {
           />
         </View>
       )}
+
+      <View
+        style={{
+          width: "100%",
+          position: "absolute",
+          bottom: 0,
+          backgroundColor: "orange",
+        }}
+      >
+        <CustomBottomTabs />
+      </View>
     </View>
   );
 }

@@ -45,15 +45,7 @@ export default function _layout() {
         );
       }}
     >
-      <Drawer.Screen
-        name="Home"
-        options={{
-          //   headerShown: false,
-          drawerLabel: "Home",
-          title: "Home",
-        }}
-      />
-      <Drawer.Screen name="Trending" />
+      <Drawer.Screen name="Home" />
       <Drawer.Screen name="profile" />
       <Drawer.Screen name="cart" />
       <Drawer.Screen name="logout" />
