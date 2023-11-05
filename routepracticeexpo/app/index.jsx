@@ -1,19 +1,12 @@
-import { View, Text } from "react-native";
-import React, { useEffect } from "react";
-import { Link, useRouter } from "expo-router";
-
+import React from "react";
+import { Redirect } from "expo-router";
+import FoodContext from "../Context/FoodContext";
 export default function index() {
-  const router = useRouter();
-  useEffect(() => {
-    setTimeout(() => {
-      router.push("/login");
-    }, 2000);
-  }, []);
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Link href={"/login"} asChild>
-        <Text>Get Started</Text>
-      </Link>
-    </View>
+    <FoodContext>
+      <Redirect href={"/login"} />;
+    </FoodContext>
   );
 }
+
+// // "entryPoint": "./app/index.js",
